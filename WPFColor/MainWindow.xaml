@@ -1,0 +1,94 @@
+﻿<Window x:Class="WPFColor.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFColor"
+        mc:Ignorable="d"
+        Title="WPF拾色器" Height="350" Width="600"
+        MinHeight="325" MinWidth="585" Icon="icon.ico">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="260"/>
+        </Grid.ColumnDefinitions>
+        <Expander ExpandDirection="Right" Header="预设" Margin="5">
+            <ListBox Name="PreColorList" Width="150"  SelectionChanged="PreColorList_SelectionChanged"/>
+        </Expander>
+        <StackPanel Grid.Column="1" HorizontalAlignment="Left" Margin="5">
+            <TextBlock Text="十六进制编码"/>
+            <TextBox Name="HexCodeTxt" Width="100" LostFocus="HexCodeTxt_LostFocus"/>
+            <TextBlock Text="颜色预览"/>
+            <Rectangle Name="ColorField" Width="100" Height="100"/>
+        </StackPanel>
+        <StackPanel Grid.Column="2" Margin="5">
+            <Expander Header="RGB模式">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="40"/>
+                        <ColumnDefinition Width="200"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="红色" Grid.Column="0" Grid.Row="0"/>
+                    <TextBlock Text="绿色" Grid.Column="0" Grid.Row="2"/>
+                    <TextBlock Text="蓝色" Grid.Column="0" Grid.Row="4"/>
+                    <TextBox Name="RTxt" Grid.Row="1" Grid.Column="0" LostFocus="RTxt_LostFocus"/>
+                    <TextBox Name="GTxt" Grid.Row="3" Grid.Column="0" LostFocus="GTxt_LostFocus"/>
+                    <TextBox Name="BTxt" Grid.Row="5" Grid.Column="0" LostFocus="BTxt_LostFocus"/>
+                    <Canvas Name="ColorRBox" Grid.Row="1" Grid.Column="1"
+                           Width="200" Height="20"/>
+                    <Slider Name="RSlider" Grid.Row="0" Grid.Column="1" Orientation="Horizontal" ValueChanged="RSlider_ValueChanged"/>
+
+                    <Canvas Name="ColorGBox" Grid.Row="3" Grid.Column="1"
+                           Width="200" Height="20"/>
+                    <Slider Name="GSlider" Grid.Row="2" Grid.Column="1" Orientation="Horizontal" ValueChanged="GSlider_ValueChanged"/>
+
+                    <Canvas Name="ColorBBox" Grid.Row="5" Grid.Column="1"
+                           Width="200" Height="20"/>
+                    <Slider Name="BSlider" Grid.Row="4" Grid.Column="1" Orientation="Horizontal" ValueChanged="BSlider_ValueChanged"/>
+                </Grid>
+            </Expander>
+            <Expander Header="HSL模式">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="40"/>
+                        <ColumnDefinition Width="200"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="亮度" Grid.Column="0" Grid.Row="0"/>
+                    <TextBlock Text="饱和度" Grid.Column="0" Grid.Row="2"/>
+                    <TextBlock Text="色相" Grid.Column="0" Grid.Row="4"/>
+                    <TextBox Name="LTxt" Grid.Row="1" Grid.Column="0" LostFocus="LTxt_LostFocus"/>
+                    <TextBox Name="STxt" Grid.Row="3" Grid.Column="0" LostFocus="STxt_LostFocus"/>
+                    <TextBox Name="HTxt" Grid.Row="5" Grid.Column="0" LostFocus="HTxt_LostFocus"/>
+                    <Canvas Name="ColorLBox" Grid.Row="1" Grid.Column="1"
+                           Width="200" Height="20"/>
+                    <Slider Name="GraySlider" Grid.Row="0" Grid.Column="1" Orientation="Horizontal" ValueChanged="GraySlider_ValueChanged"/>
+
+                    <Canvas Name="ColorSBox" Grid.Row="3" Grid.Column="1"
+                           Width="200" Height="20"/>
+                    <Slider Name="DarkSlider" Grid.Row="2" Grid.Column="1" Orientation="Horizontal" ValueChanged="DarkSlider_ValueChanged"/>
+
+                    <Canvas Name="ColorHBox" Grid.Row="5" Grid.Column="1"
+                           Width="200" Height="20"/>
+                    <Slider Name="RowSlider" Grid.Row="4" Grid.Column="1" Orientation="Horizontal" ValueChanged="RowSlider_ValueChanged"/>
+                </Grid>
+            </Expander>
+        </StackPanel>
+    </Grid>
+</Window>
